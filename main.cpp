@@ -1,4 +1,7 @@
 #include<iostream>
+#include<fstream>
+#include<ctime>
+#define MAX_NUMS 20
 using namespace std;
 
 class HashTable {
@@ -72,15 +75,22 @@ public:
 };
 
 int main() {
-  const int size = 20;
-  int arr[size] = {27, 4, 84, 26, 9, 24, 45, 8, 20, 61, 5, 27, 3, 37, 42, 71, 92, 28, 74, 69};
 
-  HashTable rizkismissing(size);
-  for (int i = 0; i < size; i++) {
-    rizkismissing.add(arr[i]);
+  ifstream ifs("numbers.txt");
+  int numbers[MAX_NUMS] = { 0 };
+
+  for (int i = 0; i < MAX_NUMS; i++) {
+    ifs >> numbers[i];
   }
-  rizkismissing.print();
-  cout <<  rizkismissing.search(19);
+
+  HashTable table(MAX_NUMS);
+
+  clock
+  for (int i = 0; i < MAX_NUMS; i++) {
+    table.add(numbers[i]);
+  }
+
+  table.print();
 
   return 0;
 }
